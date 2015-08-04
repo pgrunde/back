@@ -5,7 +5,8 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
-	"practice/nginx/back/server"
+
+	"github.com/pgrunde/back/server"
 )
 
 func main() {

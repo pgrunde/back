@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"practice/nginx/back/parse"
+	"github.com/pgrunde/back/parse"
 )
 
 type Settings struct {
