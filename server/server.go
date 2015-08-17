@@ -30,7 +30,7 @@ type Server struct {
 
 func New(s Settings) *Server {
 	server := Server{Settings: s}
-	http.HandleFunc("/shootingtracker", info)
+	http.HandleFunc("/api/shootingtracker", info)
 	return &server
 }
 

@@ -21,7 +21,7 @@ func ShootingsFromTextArea(body string) (shootings []Shooting, err error) {
 	statsThenLink := strings.Split(body, "|-\n")
 	for _, section := range statsThenLink[1:] {
 		if !strings.Contains(section, "<ref>") {
-			// Evens are stats
+			// no <ref> indicates stats
 			eachStat := strings.Split(section, "\n")
 			if len(eachStat) < 6 {
 				continue
@@ -39,7 +39,7 @@ func ShootingsFromTextArea(body string) (shootings []Shooting, err error) {
 			}
 			shootings = append(shootings, shootingStats)
 		} else {
-			// Odds are refs - will always come after a shootings, always fill the last entry
+			// <ref> presence means link
 			refLine := strings.Trim((strings.Split(section, "\n"))[0], "|")
 			shootings[len(shootings)-1].References = buildRefLines(refLine)
 		}
